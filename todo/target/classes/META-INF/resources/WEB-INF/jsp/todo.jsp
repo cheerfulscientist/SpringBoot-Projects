@@ -10,6 +10,7 @@
 		<h2>Enter new todo details here :</h2>
 		<form:form method="post" modelAttribute="todo">
 			Add Description : <form:input type="text" name="description" required="required" path="description"/>
+							<form:errors  path="description" cssClass="text-warning"/>
 						<form:input type="hidden"   path="id"/>
 						<form:input type="hidden"   path="done"/>
 			
