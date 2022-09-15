@@ -8,7 +8,7 @@
 <h2>Enter new todo details here :</h2>
 
 <form method="post">
-	<input type="text" name="description"/>
+	<input type="text" name="description" required="required"/>
 	<input type="submit" class="btn btn-success">
 </form>
 <script src="webjars/bootstrap/5.1.3/js/bootstrap.min.js"></script>
