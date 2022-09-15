@@ -30,16 +30,30 @@ public class TodoController {
 	}
 	
 	@RequestMapping(value="/addtodos",method=RequestMethod.GET)
-	public String gotonewtodoPage()
-	{
-		
-		return "todo";
-	}
-	@RequestMapping(value="/addtodos",method=RequestMethod.POST)
-	public String showtodoPage(@RequestParam String description, ModelMap model)
+	public String gotonewtodoPage(ModelMap model)
 	{
 		String username=(String)model.get("name");
-		todoservice.addTodo(username, description, LocalDate.now().plusDays(45), false);
+		Todo todo = new Todo(0,username,"",LocalDate.now().plusDays(8),false);
+		model.put("todo", todo);
+		return "todo";
+	}
+	
+	//Instead of binding parameters by req param to method , we use the class here itself in method(Object Backing Bean )
+//	@RequestMapping(value="/addtodos",method=RequestMethod.POST)
+//	public String showtodoPage(@RequestParam String description, ModelMap model)
+//	{
+//		String username=(String)model.get("name");
+//		todoservice.addTodo(username, description, LocalDate.now().plusDays(45), false);
+//		return "redirect:listtodos";
+//	}
+	
+	@RequestMapping(value="/addtodos",method=RequestMethod.POST)
+	public String showtodoPage(ModelMap model, Todo todo)
+	{
+		String username=(String)model.get("name");
+		todoservice.addTodo(username, todo.getDescription(), LocalDate.now().plusDays(45), false);
 		return "redirect:listtodos";
 	}
+	
+	
 }
