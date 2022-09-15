@@ -16,6 +16,7 @@ Your are ${name} and following are your todos:
 			<th>Description of Task</th>
 			<th>Deadline</th>
 			<th>Status is done ?</th>
+			<th></th>
 			<th></th>	
 		</tr>
 	</thead>
@@ -27,6 +28,8 @@ Your are ${name} and following are your todos:
 			<td>${todo.date}</td>
 			<td>${todo.done}</td>
 			<td> <a href="deletetodo?id=${todo.id}" class="btn btn-warning">DELETE ${todo.id}</td>
+			<td> <a href="updatetodo?id=${todo.id}" class="btn btn-success">UPDATE ${todo.id}</td>
+			
 		</tr>
 		</c:forEach>
 	</tbody>

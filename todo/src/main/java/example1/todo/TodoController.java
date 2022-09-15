@@ -64,10 +64,16 @@ public class TodoController {
 	
 	@RequestMapping("/deletetodo")
 	public String deleteTodo(@RequestParam int id)
-	
 	{
 		todoservice.deleteById(id);
 		return "redirect:listtodos";
+	}
+	@RequestMapping("/updatetodo")
+	public String updateToDo(@RequestParam int id,ModelMap model)
+	{
+		Todo todo=todoservice.findById(id);
+		model.addAttribute("todo",todo);
+		return "todo";
 	}
 	
 	
